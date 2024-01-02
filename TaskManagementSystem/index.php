@@ -1,24 +1,44 @@
-<!DOCTYPE html>
+<?php
+include ('config/constants.php');
+?>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1">
-    <title>E-Task</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <script src="bootstrap/scripts/bootstrap.min.js"></script>
-    <script></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Task Manager</title>
 </head>
 <body>
-<h1>Login</h1>
-<form action="auth.php" method="post">
-    <label for="username">Username:</label>
-    <input type="text" name="username" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-    <br>
-    <input type="submit" value="Login">
-</form>
+    <h1>Task Manager</h1>
+    <!-- Menu -->
+    <div class="Menu">
+    <a href="<?php echo SITEURL; ?>">Home</a>
+
+    <a href="#">To Do</a>
+    <a href="#">Doing</a>
+    <a href="#">Done</a>
+
+    <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
+    </div>
+    <!-- Task -->
+    <div class="all-task">
+        <a href="#">Add Task</a>
+        <table>
+            <tr>
+                <th>S.N</th>
+                <th>Task Name</th>
+                <th>Priority</th>
+                <th>Deadline</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1. </td>
+                <td>Design a website</td>
+                <td>Medium</td>
+                <td>02/19/2024</td>
+                <td>
+                    <a href="#">Update</a>
+                    <a href="#">delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
