@@ -11,10 +11,23 @@ include ('config/constants.php');
     <h3>Manage List Page</h3>
     <p>
         <?php
+        //check if the session is set
         if(isset($_SESSION['add']))
         {
             echo $_SESSION['add'];
             unset($_SESSION['add']);
+        }
+        //check the session for delete
+        if(isset($_SESSION['delete']))
+        {
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+        //check for delete fail
+        if(isset($_SESSION['delete_fail']))
+        {
+            echo $_SESSION['delete_fail'];
+            unset($_SESSION['delete_fail']);
         }
         ?>
     </p>
@@ -48,8 +61,8 @@ include ('config/constants.php');
                                 <td><?php echo $sn++; ?>.</td>
                                 <td><?php echo $list_name; ?></td>
                                 <td>
-                                    <a href="#">Update</a>
-                                    <a href="<?php echo SITEURL; ?>delete-list.php">Delete</a>
+                                    <a href="<?php echo SITEURL; ?>update-list.php?list_id=<?php echo $list_id ?>">Update</a>
+                                    <a href="<?php echo SITEURL; ?>delete-list.php?list_id=<?php echo $list_id ?>">Delete</a>
                                 </td>
                             </tr>
                             <?php
