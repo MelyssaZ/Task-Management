@@ -49,7 +49,7 @@ include ('config/constants.php');
                                 <td><?php echo $list_name; ?></td>
                                 <td>
                                     <a href="#">Update</a>
-                                    <a href="#">delete</a>
+                                    <a href="<?php echo SITEURL; ?>delete-list.php">Delete</a>
                                 </td>
                             </tr>
                             <?php
