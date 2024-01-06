@@ -22,6 +22,13 @@ include ('config/constants.php');
         {
             echo $_SESSION['delete'];
             unset($_SESSION['delete']);
+
+        }
+        //check the session for Update
+        if(isset($_SESSION['update']))
+        {
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
         }
         //check for delete fail
         if(isset($_SESSION['delete_fail']))

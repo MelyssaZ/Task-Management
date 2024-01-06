@@ -23,7 +23,7 @@ include('config/constants.php')
     <form method="post" action="">
         <table>
             <tr>
-                <td>List Name</td>
+                <td>List Name: </td>
                 <td><input type="text" name="list_name" placeholder="Type List Here" required="required"></td>
             </tr>
             <tr>
