@@ -19,7 +19,7 @@ include ('config/constants.php');
     </div>
     <!-- Task -->
     <div class="all-task">
-        <a href="#">Add Task</a>
+        <a href="<?php SITEURL ?>add-task.php">Add Task</a>
         <table>
             <tr>
                 <th>S.N</th>
