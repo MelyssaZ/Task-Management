@@ -43,6 +43,9 @@ include ('config/constants.php');
                 <td>Deadline: </td>
                 <td><input type="date" name="deadline" /></td>
             </tr>
+            <tr>
+                <td><input type="submit" name="submit" value="Save"></td>
+            </tr>
         </table>
     </form>
 </body>
