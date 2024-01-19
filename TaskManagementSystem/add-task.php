@@ -9,6 +9,14 @@ include ('config/constants.php');
     <h1>Task Manager</h1>
     <a href="<?php echo SITEURL; ?>">Home</a>
     <h3>Add Task Page</h3>
+    <p>
+        <?php
+            if(isset($_SESSION['add_fail'])){
+                echo $_SESSION['add_fail'];
+                unset ($_SESSION['add_fail']);
+            }
+        ?>
+    </p>
 
     <form method="post" action="">
         <table>
@@ -33,7 +41,7 @@ include ('config/constants.php');
                         $sql = "SELECT * FROM tbl_list";
                         //Execute Query
                         $res = mysqli_query($conn, $sql);
-                        //check the query execute
+                        //check the query is execute
                         if($res == true){
                             //create variable to count rows
                             $count_rows = mysqli_num_rows($res);
