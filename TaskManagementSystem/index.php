@@ -24,6 +24,14 @@ include ('config/constants.php');
             echo $_SESSION['add'];
             unset ($_SESSION['add']);
         }
+        if(isset($_SESSION['delete'])){
+            echo $_SESSION['delete'];
+            unset ($_SESSION['delete']);
+        }
+        if(isset($_SESSION['delete_fail'])){
+            echo $_SESSION['delete_fail'];
+            unset ($_SESSION['delete_fail']);
+        }
         ?>
     </p>
     <div class="all-task">
@@ -66,8 +74,8 @@ include ('config/constants.php');
                                 <td><?php echo $priority; ?></td>
                                 <td><?php echo $deadline?></td>
                                 <td>
-                                    <a href="#">Update</a>
-                                    <a href="#">delete</a>
+                                    <a href="<?php echo SITEURL; ?>update-task.php?task_id=<?php echo $task_id; ?>">Update</a>
+                                    <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>">delete</a>
                                 </td>
                             </tr>
                             <?php
