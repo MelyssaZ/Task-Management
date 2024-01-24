@@ -8,7 +8,7 @@ if(isset($_GET['task_id'])){
     $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
     //select database
     $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error());
-    //SQL query to get the list from table
+    //SQL query to delete task from table
     $sql = "DELETE FROM tbl_task WHERE task_id=$task_id";
     //Execute Query
     $res = mysqli_query($conn, $sql);
@@ -22,7 +22,7 @@ if(isset($_GET['task_id'])){
     else{
         //failed to delete task
         $_SESSION['delete_fail'] = "Failed to delete task";
-        //Redirect to add task page
+        //Redirect to delete task page
         header('location:'.SITEURL.'delete-task.php');
     }
 }
