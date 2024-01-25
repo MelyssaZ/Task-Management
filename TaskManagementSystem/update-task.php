@@ -55,8 +55,42 @@ if(isset($_GET['task_id'])) {
                 <tr>
                     <td>Select List: </td>
                     <td>
-                        <select>
-                            <option value="1">Doing</option>
+                        <select name="list_id">
+                            <?php
+                            //Connect Database
+                            $conn2 = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
+                            //select database
+                            $db_select2 = mysqli_select_db($conn2, DB_NAME) or die(mysqli_error());
+                            //write the query to update
+                            $sql2 = "SELECT * FROM tbl_list";
+                            //execute query
+                            $res2 = mysqli_query($conn2, $sql2);
+                            //check execute
+                            if ($res2 == true) {
+                                //Display the List
+                                //count row
+                                $count_row2 = mysqli_num_rows($res2);
+                                //check whether list is added or not
+                                if($count_row2>0){
+                                    //list are added
+                                    while($row2=mysqli_fetch_assoc($res2)){
+                                        //get individual value
+                                        $list_id_db = $row2['list_id'];
+                                        $list_name = $row2['list_name'];
+                                        ?>
+                                        <option <?php if($list_id_db==$list_id){echo "selected='selected'";} ?> value="<?php echo $list_id_db; ?>"><?php echo $list_name; ?></option>
+                                        <?php
+                                    }
+                                }
+                                else{
+                                    //No list Added
+                                    //display none as option
+                                    ?>
+                                    <option <?php if($list_id==0) {echo "selected='selected'";} ?> value="0">None</option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -64,9 +98,9 @@ if(isset($_GET['task_id'])) {
                     <td>Priority: </td>
                     <td>
                         <select name="priority">
-                            <option value="High">High</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Low">Low</option>
+                            <option <?php if($priority=="High"){echo "selected='selected'";} ?> value="High">High</option>
+                            <option <?php if($priority=="Medium"){echo "selected='selected'";} ?> value="Medium">Medium</option>
+                            <option <?php if($priority=="Low"){echo "selected='selected'";} ?> value="Low">Low</option>
                         </select>
                     </td>
                 </tr>
@@ -81,3 +115,6 @@ if(isset($_GET['task_id'])) {
         </form>
     </body>
 </html>
+<?php
+    //check if button is click
+?>
